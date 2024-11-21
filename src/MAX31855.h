@@ -61,10 +61,7 @@
 #include <avr/pgmspace.h>                                 //for Arduino STM32 PROGMEM support
 #endif
 
-#ifndef  MAX31855_SOFT_SPI                 //enable upload hw driver spi.h
 #include <SPI.h>
-#endif
-
 
 #define MAX31855_CONVERSION_POWER_UP_TIME   200    //in milliseconds
 #define MAX31855_CONVERSION_TIME            100    //in milliseconds, 9..10Hz sampling rate 
