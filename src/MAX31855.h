@@ -88,15 +88,16 @@ class MAX31855
   public:
    MAX31855(uint8_t cs);
 
-           void     begin(void);
+           void     begin(SPIClass *SPI_pointer = &SPI);
            uint8_t  detectThermocouple(int32_t rawValue = MAX31855_FORCE_READ_DATA);
            uint16_t getChipID(int32_t rawValue = MAX31855_FORCE_READ_DATA);
            float    getTemperature(int32_t rawValue = MAX31855_FORCE_READ_DATA);
+           float    getTemperatureLinearized(int32_t rawValue = MAX31855_FORCE_READ_DATA);
            float    getColdJunctionTemperature(int32_t rawValue = MAX31855_FORCE_READ_DATA);
    virtual int32_t  readRawData(void);
  
   private:
-
+   SPIClass * MAXSPI = NULL;
   protected:
    uint8_t _cs;
 };
